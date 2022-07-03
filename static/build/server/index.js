@@ -18,6 +18,6 @@ app.get("/", function (req, res) {
     var htmlPath = path_1.default.join(__dirname, "../../index.html");
     res.sendFile(htmlPath);
 });
-app.listen(83, () => {
+app.listen(80, () => {
     console.log("Server started listening the port 83");
 });

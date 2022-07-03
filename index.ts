@@ -23,6 +23,6 @@ app.get("/",function(req:Request,res:Response){
 });
 
 
-app.listen(83,()=>{
-	console.log("Server started listening the port 83");
+app.listen(80,()=>{
+	console.log("Server started listening the port 80");
 });

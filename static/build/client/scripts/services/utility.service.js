@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 class Utility {
     bruteForceSort(unsortedArray) {
     }
@@ -54,4 +52,4 @@ class Utility {
     ;
 }
 var utility = new Utility();
-exports.default = utility;
+export default utility;
