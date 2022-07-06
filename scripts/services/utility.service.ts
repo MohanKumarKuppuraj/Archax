@@ -10,8 +10,7 @@ bruteForceSort(unsortedArray:any):any {
     var arrPart1:any = [], arrPart2:any = [];
     if (unsortedArray.length > 3) {
         arrPart1 = this.sortRecords(unsortedArray.splice(0, unsortedArray.length / 2));
-        arrPart2 = this.sortRecords(unsortedArray.splice(unsortedArray.length / 2, unsortedArray.length / 2));
-        console.log(arrPart1, arrPart2);
+        arrPart2 = this.sortRecords(unsortedArray.splice(0, unsortedArray.length));
         var i:number = 0;
         for (var i = 0; i < arrPart1.length; i++) {
             var elem1 = arrPart1[i];

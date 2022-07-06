@@ -1,14 +1,17 @@
 import React from "react";
-import Question from "./../question/question.component";
+import QuestionAnswers from "./../question/question.component";
 
 class RootView extends React.Component{
-
 	render():any{
 		return (
-			<div>
-				<span>Root View is rendered</span>
-				<Question></Question>
-			</div>
+			<section className="component-container">
+				<section className="header">
+				<h1>Archax Assessments</h1>
+				</section>
+				<section className="question-answer-container">
+					<QuestionAnswers></QuestionAnswers>
+				</section>
+			</section>
 			)
 	}
 }

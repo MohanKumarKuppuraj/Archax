@@ -1,11 +1,10 @@
 import express,{Express,Request,Response} from "express";
 import {dataRequestObj} from "./apis/data.requests";
 import Employee from "./models/employee.model";
+import BufferModel from "./models/buffer.object.model";
 import path from "path";
 
 var app:Express = express();
-
-
 app.set('view engine', 'html');
 console.log(path.join(__dirname ,"../../"));
 app.use(express.static(path.join(__dirname ,"../../")));
@@ -15,6 +14,45 @@ app.get("/apis/get-employees-data",function(req:Request,res:Response){
 	res.json(employeeRecords);
 });
 
+app.get("/apis/get-employees-data-await/:count",function(req:Request,res:Response){
+	var count:number = Number(req.params.count);
+	var employeeRecords:Employee[] = dataRequestObj.getEmployeeRecords(count);
+	res.json(employeeRecords);
+});
+
+app.get("/apis/save-buffer",function(req:Request,res:Response){
+	
+	enum side{
+		buy = "buy",
+		sell = "sell"
+	 };
+
+     enum type{
+		limit = "limit",
+		market = "market"
+	 };
+	var bufferObj:BufferModel = new BufferModel("&",100,9039053409554	,side.buy,type.limit);
+	var buffer = bufferObj.getEncodedObject();
+	console.log(buffer);
+	res.send(buffer);
+});
+
+app.get("/apis/get-buffer",function(req:Request,res:Response){
+	
+	enum side{
+		buy = "buy",
+		sell = "sell"
+	 };
+
+     enum type{
+		limit = "limit",
+		market = "market"
+	 };
+	var bufferObj:BufferModel = new BufferModel("&",100,9039053409554	,side.buy,type.limit);
+	var buffer = bufferObj.getEncodedObject();
+	bufferObj.decodeObject(buffer);
+	res.send(buffer);
+});
 
 
 app.get("/",function(req:Request,res:Response){

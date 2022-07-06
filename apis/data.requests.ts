@@ -1,7 +1,6 @@
 import Employee from "./../models/employee.model";
 class DataRequests{
-	 getEmployeeRecords():Employee[]{
-		var employeesCount=1000;
+	 getEmployeeRecords(employeesCount:number = 50):Employee[]{
 		var employeeRecords = [];
 		for(var i=0;i<employeesCount;i++){
 			var randomNumber  = Math.round(Math.random()*1000);

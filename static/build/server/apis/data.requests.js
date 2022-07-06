@@ -6,8 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.dataRequestObj = void 0;
 const employee_model_1 = __importDefault(require("./../models/employee.model"));
 class DataRequests {
-    getEmployeeRecords() {
-        var employeesCount = 1000;
+    getEmployeeRecords(employeesCount = 50) {
         var employeeRecords = [];
         for (var i = 0; i < employeesCount; i++) {
             var randomNumber = Math.round(Math.random() * 1000);

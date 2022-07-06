@@ -6,8 +6,7 @@ class Utility {
         var arrPart1 = [], arrPart2 = [];
         if (unsortedArray.length > 3) {
             arrPart1 = this.sortRecords(unsortedArray.splice(0, unsortedArray.length / 2));
-            arrPart2 = this.sortRecords(unsortedArray.splice(unsortedArray.length / 2, unsortedArray.length / 2));
-            console.log(arrPart1, arrPart2);
+            arrPart2 = this.sortRecords(unsortedArray.splice(0, unsortedArray.length));
             var i = 0;
             for (var i = 0; i < arrPart1.length; i++) {
                 var elem1 = arrPart1[i];
