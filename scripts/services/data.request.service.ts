@@ -10,6 +10,12 @@ class DataRequestService{
 		var data = await fetchResponse.json();
 		return data;
 	}
+
+	async fetchAnswer(index:number):Promise<string>{
+		var fetchResponse = await fetch("/apis/get-answer/"+index);
+		var data:string = await fetchResponse.text();
+		return data;
+	}
 }
 
 var dataRequestService:DataRequestService = new DataRequestService();

@@ -11,6 +11,7 @@ class DataRequests{
 	}
 		return employeeRecords;
 	}
+
 }
 let dataRequestObj:DataRequests = new DataRequests();
 export {dataRequestObj}

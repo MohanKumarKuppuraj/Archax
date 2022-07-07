@@ -22,6 +22,13 @@ class DataRequestService {
             return data;
         });
     }
+    fetchAnswer(index) {
+        return __awaiter(this, void 0, void 0, function* () {
+            var fetchResponse = yield fetch("/apis/get-answer/" + index);
+            var data = yield fetchResponse.text();
+            return data;
+        });
+    }
 }
 var dataRequestService = new DataRequestService();
 export default dataRequestService;

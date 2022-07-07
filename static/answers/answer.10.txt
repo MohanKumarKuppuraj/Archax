@@ -1,4 +1,3 @@
-//import jest from "@jest/globals";
 import {render,screen} from "@testing-library/react";
 import React from "react";
 import SortComponent from "./../static/build/client/scripts/components/sort/sort.component";

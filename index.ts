@@ -3,6 +3,7 @@ import {dataRequestObj} from "./apis/data.requests";
 import Employee from "./models/employee.model";
 import BufferModel from "./models/buffer.object.model";
 import path from "path";
+import fs from "fs";
 
 var app:Express = express();
 app.set('view engine', 'html');
@@ -19,6 +20,12 @@ app.get("/apis/get-employees-data-await/:count",function(req:Request,res:Respons
 	var employeeRecords:Employee[] = dataRequestObj.getEmployeeRecords(count);
 	res.json(employeeRecords);
 });
+
+app.get("/apis/get-answer/:index",async function(req:Request,res:Response){
+	var data =  fs.readFileSync(path.resolve("./static/answers/answer."+req.params.index+".txt"),"utf-8");
+	res.send(data);
+});
+
 
 app.get("/apis/save-buffer",function(req:Request,res:Response){
 	
@@ -50,8 +57,8 @@ app.get("/apis/get-buffer",function(req:Request,res:Response){
 	 };
 	var bufferObj:BufferModel = new BufferModel("&",100,9039053409554	,side.buy,type.limit);
 	var buffer = bufferObj.getEncodedObject();
-	bufferObj.decodeObject(buffer);
-	res.send(buffer);
+	var decodedBuffer = bufferObj.decodeObject(buffer);
+	res.send(decodedBuffer);
 });
 
 

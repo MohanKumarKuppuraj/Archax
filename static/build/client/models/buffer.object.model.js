@@ -42,27 +42,39 @@ class BufferModel {
         data = data.concat("¬");
         return data;
     }
+    getASCIIConvert(arr) {
+        var res = "";
+        for (var i in arr) {
+            res += String.fromCharCode(arr[i]);
+        }
+        return res;
+    }
     decodeObject(arr) {
         var count = 0;
+        var _symbol = "";
+        var _priceStr = "";
+        var _quantityStr = "";
+        var _sideStr = "";
+        var _typeStr = "";
         var currentDecodeArr = [];
         for (var i = 0; i < arr.length; i++) {
             if (arr[i] === "¬") {
                 count++;
                 switch (count) {
                     case 1:
-                        console.log(currentDecodeArr);
+                        _symbol = this.getASCIIConvert(currentDecodeArr);
                         break;
                     case 2:
-                        console.log(currentDecodeArr);
+                        _priceStr = this.getASCIIConvert(currentDecodeArr);
                         break;
                     case 3:
-                        console.log(currentDecodeArr);
+                        _quantityStr = this.getASCIIConvert(currentDecodeArr);
                         break;
                     case 4:
-                        console.log(currentDecodeArr);
+                        _sideStr = this.getASCIIConvert(currentDecodeArr);
                         break;
                     case 5:
-                        console.log(currentDecodeArr);
+                        _typeStr = this.getASCIIConvert(currentDecodeArr);
                         break;
                 }
                 currentDecodeArr = [];
@@ -71,6 +83,9 @@ class BufferModel {
                 currentDecodeArr.push(arr[i]);
             }
         }
+        console.log("_symbol,_priceStr,_quantityStr,_sideStr,_typeStr", _symbol, _priceStr, _quantityStr, _sideStr, _typeStr);
+        var bufferObj = new BufferModel(_symbol, Number(_priceStr), Number(_quantityStr), _sideStr, _typeStr);
+        return bufferObj;
     }
 }
 export default BufferModel;

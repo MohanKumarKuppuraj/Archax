@@ -1,6 +1,7 @@
 import React from "react";
 import SortComponent from "./../sort/sort.component";
 import dataRequestService from "./../../services/data.request.service";
+import Answer from "./../answer/answer.component";
 class QuestionAnswers extends React.Component<any,any>{
 	
 	constructor(props:any){
@@ -10,7 +11,6 @@ class QuestionAnswers extends React.Component<any,any>{
 			forData:[]
 		};
 	}
-
 
 	/*
 	 Sample code to explain ENUM and Object
@@ -122,25 +122,26 @@ class QuestionAnswers extends React.Component<any,any>{
 			<section className="question-answer-section">
 			<div className="question"><p>{"Describe at least one way to substitute a local, unpublished version of a JavaScript library in place of a another version that is already published in an NPM registry."}</p>
 </div>
-			<div className="answer">Answer 4</div>
+			<div className="answer"><Answer index="4"></Answer></div>
 			</section>
 
 			<section className="question-answer-section">
 			<div className="question"><p>{"Write a script that will encode the following information sequentially in a JavaScript `Buffer`. No need to include field metadata, assume the consumer/decoder is aware of the offsets to use and can parse enum values. Make sure to select data types that are optimized for payload size, but can adequately express all possible values given the length and data type: `symbol`: utf-8 string up to 4 characters, `price`: unsigned 64-bit integer, `quantity`: unsigned 64-bit integer, `side`: enum buy | sell, `type`: enum limit | market."}</p>
 </div>
-			<div className="answer">Answer 5</div>
+			<div className="answer"><Answer index="5"></Answer></div>
 			</section>
 
 			<section className="question-answer-section">
 			<div className="question"><p>{"Write a script that will decode the `Buffer` you generated from question 5, and return an object with fields as described in the question."}</p>
 </div>
-			<div className="answer">Answer 6</div>
+			<div className="answer"><Answer index="6"></Answer></div>
 			</section>
 
 			<section className="question-answer-section">
 			<div className="question"><p>{"Write a function that will employ a divide-and-conquer algorithm that will sort an array of objects by their `dateHired` (native JS `Date` object) property in descending order. All items in the array will be an object which has a `dateHired` property which is a valid `Date` object. You cannot use built-in array sorting methods and 3rd-party libraries, but manipulating the `dateHired` property with built-in Node.js/ES6+ functions is allowed."}</p>
 </div>
 			<div className="answer"> 
+				<Answer index="7"></Answer>
 				<SortComponent></SortComponent>
 			</div>
 			</section>
@@ -148,7 +149,9 @@ class QuestionAnswers extends React.Component<any,any>{
 			<section className="question-answer-section">
 			<div className="question"><p>{"Write a TypeScript variable declaration for a variable `a` that will guarantee that it is a property name or key of object `b` at compile-time."}</p>
 </div>
-			<div className="answer">Answer 8</div>
+			<div className="answer">
+				<Answer index="8"></Answer>
+			</div>
 			</section>
 
 			<section className="question-answer-section">
@@ -162,7 +165,9 @@ class QuestionAnswers extends React.Component<any,any>{
 			<section className="question-answer-section">
 			<div className="question"><p>{"Write a `jest` mock of method `fetchAllRecords` that will return a `Promise` that resolves immediately to array `[1, 2, 3]` that belongs to class `Employee`"}</p>
 </div>
-			<div className="answer">Answer 10</div>
+			<div className="answer">
+					<Answer index="10"></Answer>
+			</div>
 			</section>
 		</section>);
 	}
