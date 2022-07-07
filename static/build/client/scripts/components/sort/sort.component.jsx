@@ -32,23 +32,27 @@ class SortComponent extends React.Component {
     render() {
         return (<section>
 				<h1>UnSorted Records</h1>
-				<table>
+				<table data-testid="unsorted-records">
+				<tbody>
 				<tr><td>Index</td><td>employeeId</td><td>dateHired</td></tr>
 				{this.state.employees.map((employee, index) => <tr>
 						<td>{index + 1}</td>
 						<td>{employee.employeeId}</td>
 						<td>{employee.dateHired}</td>
 					</tr>)}
+				</tbody>
 				</table>
 
 				<h1>Sorted Records</h1>
-				<table>
+				<table data-testid="sorted-records">
+				<tbody>
 				<tr><td>Index</td><td>employeeId</td><td>dateHired</td></tr>
 				{this.state.sortedData.map((employee, index) => <tr>
 						<td>{index + 1}</td>
 						<td>{employee.employeeId}</td>
 						<td>{employee.dateHired}</td>
 					</tr>)}
+				</tbody>
 				</table>
 			</section>);
     }
